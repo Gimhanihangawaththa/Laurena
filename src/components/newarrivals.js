@@ -71,7 +71,7 @@ const newarrivalsData = [
   {
     id: 8,
     image: require('../assests/images/team8.jpg'),
-    fbLink: 'https://www.facebook.com',
+   
     twitterLink: 'https://www.twitter.com',
     linkedinLink: 'https://www.linkedin.com',
     name: 'Minimalist Stud Earrings',
