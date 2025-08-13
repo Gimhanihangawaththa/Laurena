@@ -44,7 +44,7 @@ const newarrivalsData = [
   {
     id: 5,
     image: require("../assests/images/team5.jpg"),
-    fbLink: 'https://www.facebook.com',
+    
     twitterLink: 'https://www.twitter.com',
     linkedinLink: 'https://www.linkedin.com',
     name: 'Sapphire Promise Bangle',
