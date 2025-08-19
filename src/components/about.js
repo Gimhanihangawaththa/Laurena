@@ -7,8 +7,7 @@ import Image from 'react-bootstrap/Image';
 import img1 from "../assests/images/img1.jpg";
 
 function AppAbout() {
-  
-
+    
   return (
     <section id="about" className="block about-block">
       <Container fluid>

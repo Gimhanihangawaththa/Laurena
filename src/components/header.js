@@ -1,30 +1,76 @@
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Dashboard from './dashboard';
+import Login from './login';
 
 
+function AppHeader() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
-export default function AppHeader(){
-    return(
-       <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">Laurena</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-             <Nav.Link href="#categories">Categories</Nav.Link>
-             <Nav.Link href="#collection">Collection</Nav.Link>
-            <Nav.Link href="#newarrivals">New Arrivals</Nav.Link>
-             <Nav.Link href="#services">Services</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-           
-           
-           
-          
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    )
+  return (
+    <>
+     <Navbar bg="light" expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand href="#home">Laurena</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#collection">Collection</Nav.Link>
+              <Nav.Link href="#newarrivals">New Arrivals</Nav.Link>
+              <Nav.Link href="#services">Services</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+              <Nav.Link href="#contact">Contact</Nav.Link>
+            </Nav>
+            <Nav>
+       
+              <Nav.Link onClick={() => setShowProfile(true)}>
+                <i className="bi bi-person-circle" style={{ fontSize: '1rem' }}></i>
+              </Nav.Link>
+               <Nav.Link onClick={() => setShowLogin(true)}>
+                <i className="bi bi-box-arrow-in-right" style={{ fontSize: '1rem' }}></i>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Modal show={showProfile} onHide={() => setShowProfile(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Profile</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Replace with your profile info */}
+         <Dashboard/>
+        </Modal.Body>
+<Modal show={showLogin} onHide={() => setShowLogin(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         <Login/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowLogin(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+          {/* Profile Modal */}
+      
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowProfile(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      </>
+  );
 }
+
+export default AppHeader;

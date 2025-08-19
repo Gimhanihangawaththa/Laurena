@@ -1175,4 +1175,114 @@ textarea {
     font-size: 26px;
     margin: 0;
   }
+  /* General Dashboard Layout */
+
+.dashboard {
+  min-height: 100vh;         /* full viewport height */
+  background-color: #1e1e2f; /* dark background */
+  color: #fff;               /* white text */
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2c3e;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.top-bar img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.top-bar h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Stat Cards */
+.stat-card {
+  background: #2c2c3e !important;
+  color: #fff !important;
+  border: none !important;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px !important;
+  transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Recent Activity */
+.recent-activity h5 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.recent-activity .card {
+  background: #2c2c3e;
+  color: #fff;
+  border: none;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.recent-activity .completed {
+  border-left: 5px solid #4CAF50;
+}
+
+.recent-activity .in-progress {
+  border-left: 5px solid #FFC107;
+}
+
+/* Revenue Chart */
+.revenue-overview {
+  background: #2c2c3e;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* Order Status */
+.order-status {
+  background: #2c2c3e;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.order-status h5 {
+  margin-bottom: 20px;
+}
+
+.legend {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+}
+
+/* Bottom Buttons */
+.bottom-buttons button {
+  margin: 8px;
+  background: #333 !important;
+  border: none !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.bottom-buttons button:hover {
+  background: #555 !important;
+}
+
 }
