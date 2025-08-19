@@ -14,6 +14,18 @@ function AppHeader() {
   const [showSignup, setShowSignup] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
 
+  // Switch from Login → Signup
+  const handleShowSignup = () => {
+    setShowLogin(false);
+    setShowSignup(true);
+  };
+
+  // Switch from Signup → Login
+  const handleShowLogin = () => {
+    setShowSignup(false);
+    setShowLogin(true);
+  };
+
   return (
     <>
       <Navbar bg="light" expand="lg" fixed="top">
@@ -45,7 +57,6 @@ function AppHeader() {
           <Modal.Title>Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Replace with your profile info */}
           <Dashboard />
         </Modal.Body>
         <Modal.Footer>
@@ -61,7 +72,7 @@ function AppHeader() {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Login />
+          <Login onSignupClick={handleShowSignup} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowLogin(false)}>
@@ -69,19 +80,21 @@ function AppHeader() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Signup Modal */}
       <Modal show={showSignup} onHide={() => setShowSignup(false)} centered>
-  <Modal.Header closeButton>
-    <Modal.Title>Sign Up</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <Signup />
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setShowSignup(false)}>
-      Close
-    </Button>
-  </Modal.Footer>
-</Modal>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign Up</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Signup onLoginClick={handleShowLogin} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowSignup(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
