@@ -1285,4 +1285,169 @@ textarea {
   background: #555 !important;
 }
 
+/* Container full height */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card styling */
+.card {
+  border-radius: 15px;
+  border: none;
+  background: #ffffff;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading */
+.card h2 {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form labels */
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Input fields */
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.4);
+}
+
+/* Checkbox */
+.form-check-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+/* Link button */
+.btn-link {
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Social login */
+.btn-outline-secondary {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.text-center span {
+  display: inline-block;
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  top: -10px;
+  color: #888;
+}
+
+/* Divider line for "or" */
+.text-center {
+  position: relative;
+}
+
+.text-center::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  z-index: 0;
+}
+
+.text-center span {
+  background: #fff;
+  z-index: 1;
+}
+/* Add or update in c:\Users\User\Documents\GitHub\Laurena\src\App.css */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(55, 84, 122, 0.18);
+  padding: 3.5rem 2.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.login-card h2 {
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #2d2d2d;
+  font-size: 2.5rem;
+}
+
+.login-card .form-group label {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.login-card .form-control {
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d1d5db;
+  font-size: 1.15rem;
+}
+
+.login-card .btn-primary {
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .login-card h2 {
+    font-size: 2rem;
+  }
+}
 }
