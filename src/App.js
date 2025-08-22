@@ -19,8 +19,6 @@ function App() {
           <AppHeader />
         </header>
 
-       
-          
               <main>
                 <AppHero />
                 <AppCollection />
