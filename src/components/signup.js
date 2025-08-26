@@ -8,18 +8,25 @@ const Signup = ({ onLoginClick }) => {
     console.log("Signup submitted");
   };
 
+  const newuser ={
+    Name: "",
+    Email: "",
+    password: ""
+
+  }
+
   return (
     <div className="login-container">
       <div className="login-card">
         <h2 className="text-center mb-4">Create Account</h2>
         <form onSubmit={handleSubmit}>
-          {/* your form inputs here */}
+         
           <div className="form-group mb-3">
             <label htmlFor="name">Name</label>
             <input type="text" className="form-control" id="name" placeholder="Enter your name" required />
           </div>
           <div className="form-group mb-3">
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">Email</label>
             <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
           </div>
           <div className="form-group mb-3">

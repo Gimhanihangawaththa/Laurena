@@ -16,7 +16,9 @@ const Login = ({ onSignupClick }) => {
           {/* your form inputs here */}
                  <div className="form-group mb-3">
             <label htmlFor="name">Name</label>
-            <input type="text" className="form-control" id="name" placeholder="Enter your name" required />
+            <input type="text" className="form-control" id="name" placeholder="Enter your name" required
+            onChange={(e) => setName(e.target.value) }
+            />
           </div>
          
           <div className="form-group mb-3">
