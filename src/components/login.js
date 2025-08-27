@@ -8,16 +8,18 @@ const Login = ({ onSignupClick }) => {
     console.log("Login submitted");
   };
 
+
+
   return (
     <div className="login-container">
       <div className="login-card">
         <h2 className="text-center mb-4">Get Started Now</h2>
         <form onSubmit={handleSubmit}>
-          {/* your form inputs here */}
+         
                  <div className="form-group mb-3">
             <label htmlFor="name">Name</label>
             <input type="text" className="form-control" id="name" placeholder="Enter your name" required
-            onChange={(e) => setName(e.target.value) }
+           
             />
           </div>
          

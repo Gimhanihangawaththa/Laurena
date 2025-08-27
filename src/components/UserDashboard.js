@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
-
 // Sample data for Pie Chart
 const orderData = [
   { name: "Completed", value: 60 },
@@ -12,18 +11,14 @@ const orderData = [
 
 const COLORS = ["#4caf50", "#ffc107", "#f44336"];
 
-const Dashboard = () => {
+const UserDashboard = () => {
   return (
     <div className="dashboard">
       <Container fluid>
-        {/* Top Bar */}
-        <div className="top-bar">
-          <h4>Welcome back, Alex👋</h4>
-          
-        </div>
+        <h4>Welcome back, Alex 👋</h4>
 
         {/* Stat Cards */}
-        <Row>
+        <Row className="mt-3">
           <Col md={4}>
             <Card className="stat-card">
               <Card.Body>
@@ -116,4 +111,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UserDashboard;
