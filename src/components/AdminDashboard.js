@@ -1,54 +1,60 @@
-import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+// 
+
+
+// src/components/AdminDashboard.js
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const AdminDashboard = () => {
+  const [adminName] = useState("Gimhani"); // Replace with login user later
+
+  // Dummy users (later can fetch from backend)
+  const users = [
+    { id: 1, name: "Nimal", email: "nimal@example.com" },
+    { id: 2, name: "Kamal", email: "kamal@example.com" },
+    { id: 3, name: "Saman", email: "saman@example.com" },
+  ];
+
+  const handleAddProductClick = () => {
+    // Later you can navigate to AddProduct page
+    alert("Redirect to Add Product Page");
+  };
+
   return (
-    <div className="dashboard">
-      <Container fluid>
-        <h4>Welcome back, Admin 👑</h4>
+    <div className="container mt-5">
+      <div className="card shadow p-4">
+        <h2 className="mb-3">Hello, Admin {adminName}</h2>
+        <p className="text-muted">Welcome to your Jewelry Shop Dashboard</p>
 
-        <Row className="mt-3">
-          <Col md={6}>
-            <Card>
-              <Card.Body>
-                <h5>User Management</h5>
-                <p>View, edit, and remove users.</p>
-                <Button variant="primary">Manage Users</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card>
-              <Card.Body>
-                <h5>Product Management</h5>
-                <p>Add, update, or delete products.</p>
-                <Button variant="success">Manage Products</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+        {/* ================= USERS SECTION ================= */}
+        <h4 className="mt-4">👥 User Details</h4>
+        <table className="table table-bordered mt-2">
+          <thead className="table-light">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-        <Row className="mt-4">
-          <Col md={6}>
-            <Card>
-              <Card.Body>
-                <h5>Reports</h5>
-                <p>Generate detailed system reports.</p>
-                <Button variant="warning">Generate Report</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={6}>
-            <Card>
-              <Card.Body>
-                <h5>Settings</h5>
-                <p>Update roles, permissions, and preferences.</p>
-                <Button variant="danger">System Settings</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+        {/* ================= ADD PRODUCT BUTTON ================= */}
+        <div className="mt-4">
+          <h4 className="mt-4">💎 Product Management</h4>
+          <button className="btn btn-primary" onClick={handleAddProductClick}>
+            Add Product
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
