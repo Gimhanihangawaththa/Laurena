@@ -19,7 +19,7 @@ const Signup = ({ onLoginClick }) => {
       password,
     };
 
-    axios.post("http://localhost:5000/users/add", newUser)
+    axios.post("http://localhost:3005/user/add", newUser)
       .then(() => {
         alert("User Added Successfully!");
         // Reset form
