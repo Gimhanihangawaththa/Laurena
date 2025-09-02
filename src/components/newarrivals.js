@@ -1,62 +1,134 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Image from 'react-bootstrap/Image';
 
 
-const newarrivalsData = [
-  {
-    id: 1,
-    image: require('../assests/images/team1.jpg'),
-    name: 'Diamond Drop Necklace',
-    description:'Single 0.5ct brilliant-cut diamond on an 18K white gold chain, GIA-certified for quality.',
-  },
+// const newarrivalsData = [
+//   {
+//     id: 1,
+//     image: require('../assests/images/team1.jpg'),
+//     name: 'Diamond Drop Necklace',
+//     description:'Single 0.5ct brilliant-cut diamond on an 18K white gold chain, GIA-certified for quality.',
+//   },
   
-  {
-    id: 2,
-    image: require('../assests/images/team2.jpg'),
-    name: 'Celestial Star Ring',
-    description:'South Sea pearls (10mm) mounted on sterling silver hooks, perfect for formal wear.',
-  },
-  {
-    id: 3,
-    image: require('../assests/images/team3.jpg'),
-    name: 'Vintage Gold Band',
-    description:'Sterling silver chain bracelet with five detachable charms, adjustable length.'
-  },
-  {
-    id: 4,
-    image: require('../assests/images/team4.jpg'),
-    name: 'Emerald Royal Necklace',
-    description:'Crafted from natural freshwater pearls, each hand-picked for luster, set on a 14K gold chain.'
-  },
-  {
-    id: 5,
-    image: require("../assests/images/team5.jpg"),
-    name: 'Sapphire Promise Bangle',
-     description:'Intricate hand-carved 22K gold design, lightweight but sturdy.'
-  },
-  {
-    id: 6,
-    image: require('../assests/images/team6.jpg'), 
-    name: 'Princess Cut Ring',
-    description:'Medium-sized 14K gold hoops with secure hinged clasp, polished to a mirror finish.',
-  },
-  {
-    id: 7,
-    image: require('../assests/images/team7.jpg'),
-    name: 'Sapphire Teardrop Earrings',
-   description:'14K rose gold infinity band featuring 20 micro-pavé diamonds (total 0.3ct).'
-  },
-  {
-    id: 8,
-    image: require('../assests/images/team8.jpg'),
-    name: 'Minimalist Stud Earrings',
-    description:' Smooth 22K solid gold band, 3mm width, perfect for everyday wear.'
-  }
-]
+//   {
+//     id: 2,
+//     image: require('../assests/images/team2.jpg'),
+//     name: 'Celestial Star Ring',
+//     description:'South Sea pearls (10mm) mounted on sterling silver hooks, perfect for formal wear.',
+//   },
+//   {
+//     id: 3,
+//     image: require('../assests/images/team3.jpg'),
+//     name: 'Vintage Gold Band',
+//     description:'Sterling silver chain bracelet with five detachable charms, adjustable length.'
+//   },
+//   {
+//     id: 4,
+//     image: require('../assests/images/team4.jpg'),
+//     name: 'Emerald Royal Necklace',
+//     description:'Crafted from natural freshwater pearls, each hand-picked for luster, set on a 14K gold chain.'
+//   },
+//   {
+//     id: 5,
+//     image: require("../assests/images/team5.jpg"),
+//     name: 'Sapphire Promise Bangle',
+//      description:'Intricate hand-carved 22K gold design, lightweight but sturdy.'
+//   },
+//   {
+//     id: 6,
+//     image: require('../assests/images/team6.jpg'), 
+//     name: 'Princess Cut Ring',
+//     description:'Medium-sized 14K gold hoops with secure hinged clasp, polished to a mirror finish.',
+//   },
+//   {
+//     id: 7,
+//     image: require('../assests/images/team7.jpg'),
+//     name: 'Sapphire Teardrop Earrings',
+//    description:'14K rose gold infinity band featuring 20 micro-pavé diamonds (total 0.3ct).'
+//   },
+//   {
+//     id: 8,
+//     image: require('../assests/images/team8.jpg'),
+//     name: 'Minimalist Stud Earrings',
+//     description:' Smooth 22K solid gold band, 3mm width, perfect for everyday wear.'
+//   }
+// ]
+
+// function AppNewarrivals() {
+//   return (
+//     <section id="newarrivals" className="block newarrivals-block">
+//       <Container fluid>
+//         <div className="title-holder">
+//           <h2> New Arrivals</h2>
+//         </div>
+//         <Row>
+//           {
+//              newarrivalsData.map( newarrivals => {
+//               return (
+//                 <Col sm={3} key={ newarrivals.id}>
+//                   <div className='image'>
+//                     <Image src={ newarrivals.image} />
+//                     <div className='overlay'>
+//                       <div className='socials'>
+//                         <ul>
+                          
+//                                            <p>{ newarrivals.description}</p>  
+//                         </ul>
+//                       </div>
+//                     </div>
+//                   </div>
+//                   <div className='content'>
+//                     <h3>{ newarrivals.name}</h3>
+                    
+//                   </div>
+//                 </Col>
+//               );
+//             })
+//           }
+//         </Row>
+//       </Container>
+//     </section>
+//   );
+// }
+
+// export default AppNewarrivals;
+
+
+// 
+
+
+
+import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import '../App.css';
 
 function AppNewarrivals() {
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+   
+    axios
+      .get("http://localhost:3005/api/product/newarrivals") 
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching products:", err);
+      });
+  }, []);
+
+  const handleClick = (id) => {
+    navigate(`/singleview/${id}`); // ✅ go to single product page
+  };
+
   return (
     <section id="newarrivals" className="block newarrivals-block">
       <Container fluid>
@@ -64,29 +136,35 @@ function AppNewarrivals() {
           <h2> New Arrivals</h2>
         </div>
         <Row>
-          {
-             newarrivalsData.map( newarrivals => {
-              return (
-                <Col sm={3} key={ newarrivals.id}>
-                  <div className='image'>
-                    <Image src={ newarrivals.image} />
-                    <div className='overlay'>
-                      <div className='socials'>
-                        <ul>
-                          
-                                           <p>{ newarrivals.description}</p>  
-                        </ul>
-                      </div>
-                    </div>
+          {products.map((product) => (
+            <Col sm={3} key={product._id} style={{ cursor: "pointer" }}
+                  onClick={() => handleClick(product._id)} >
+              <div className="image">
+                {/* Image comes from backend uploads folder */}
+                
+                  
+                
+
+                <Image
+                  src={`http://localhost:3005/uploads/${product.image}`}
+                  alt={product.productName}
+                  fluid
+                 
+                />
+                <div className="overlay">
+                  <div className="socials">
+                    <ul>
+                      <p>{product.description}</p>
+                    </ul>
                   </div>
-                  <div className='content'>
-                    <h3>{ newarrivals.name}</h3>
-                    
-                  </div>
-                </Col>
-              );
-            })
-          }
+                </div>
+              </div>
+              <div className="content">
+                <h3>{product.productName}</h3>
+                <p><strong>${product.price}</strong></p>
+              </div>
+            </Col>
+          ))}
         </Row>
       </Container>
     </section>

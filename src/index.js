@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter } from 'react-router-dom';
+// import SingleProduct from './components/SingleProduct';
+// import AddProduct from './components/AddProduct';
+// import AppNewarrivals from './components/newarrivals';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <BrowserRouter>
     <App />
-  
+    {/* <AppNewarrivals/>  */}
+   
+  {/* <SingleProduct/> */}
   </BrowserRouter>
 );
 

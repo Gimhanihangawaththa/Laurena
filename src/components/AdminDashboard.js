@@ -4,10 +4,14 @@
 // src/components/AdminDashboard.js
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
+// import '../App.css';
+
+
 
 const AdminDashboard = () => {
   const [adminName] = useState("Gimhani"); // Replace with login user later
-
+const navigate = useNavigate();
   // Dummy users (later can fetch from backend)
   const users = [
     { id: 1, name: "Nimal", email: "nimal@example.com" },
@@ -16,8 +20,8 @@ const AdminDashboard = () => {
   ];
 
   const handleAddProductClick = () => {
-    // Later you can navigate to AddProduct page
-    alert("Redirect to Add Product Page");
+   navigate('/addproduct');
+    
   };
 
   return (

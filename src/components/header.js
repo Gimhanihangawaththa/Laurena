@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Dropdown from "react-bootstrap/Dropdown";
+// import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Login from "./login";
@@ -38,21 +38,17 @@ function AppHeader() {
               <Nav.Link href="#newarrivals">New Arrivals</Nav.Link>
               <Nav.Link href="#services">Services</Nav.Link>
               <Nav.Link href="#about">About</Nav.Link>
+              
             </Nav>
             <Nav>
-              {/* Profile Dropdown */}
-              <Dropdown align="end">
-                <Dropdown.Toggle variant="light" id="dropdown-profile" className="border-0">
-                  <i className="bi bi-person-circle" style={{ fontSize: "1rem" }}></i>
-                </Dropdown.Toggle>
+           
+              <i
+              className="bi bi-person-circle"
+              style={{ fontSize: "1rem", cursor: "pointer" }}
+              onClick={() => navigate("/admin")} />
+              
 
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => navigate("/user")}>User</Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/admin")}>Admin</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-
-              {/* Login button */}
+     
               <Nav.Link onClick={() => setShowLogin(true)}>
                 <i className="bi bi-box-arrow-in-right" style={{ fontSize: "1rem" }}></i>
               </Nav.Link>

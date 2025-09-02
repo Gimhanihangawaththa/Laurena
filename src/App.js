@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
-
+// import { Outlet } from "react-router-dom";
 import AppHeader from './components/header';
 import AppAbout from './components/about';
 import AppServices from './components/services';
@@ -10,8 +10,8 @@ import AppCollection from './components/collection';
 import AppNewarrivals from './components/newarrivals';
 import Appfooter from './components/footer';
 import AppHero from './hero';
-
-import UserDashboard from './components/UserDashboard';
+import SingleProduct from './components/SingleProduct';
+import AddProduct from './components/AddProduct';
 import AdminDashboard from './components/AdminDashboard';
 
 function App() {
@@ -42,8 +42,9 @@ function App() {
         />
 
         {/* User dashboard page */}
-        <Route path="/user" element={<UserDashboard />} />
-
+       
+        <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/singleview/:id" element={<SingleProduct />} /> 
         {/* Admin dashboard page */}
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
