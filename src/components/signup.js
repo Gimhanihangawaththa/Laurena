@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 
 const Signup = ({ onLoginClick }) => {
+  
+  const navigate = useNavigate();
   // State for inputs
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +35,8 @@ const Signup = ({ onLoginClick }) => {
         alert(err);
       })
       .finally(() => setLoading(false));
+      navigate("/login");
+
   };
 
   return (

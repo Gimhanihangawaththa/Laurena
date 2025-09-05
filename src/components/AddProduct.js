@@ -212,7 +212,7 @@ const AddProduct = () => {
 
           {/* Price */}
           <div className="mb-3">
-            <label className="form-label">Price (LKR)</label>
+            <label className="form-label">Price ($)</label>
             <input
               type="number"
               className="form-control"

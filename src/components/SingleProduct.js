@@ -272,7 +272,7 @@ const SingleProduct = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label fw-bold">Price (LKR):</label>
+              <label className="form-label fw-bold">Price ($):</label>
               {editing ? (
                 <input
                   type="number"

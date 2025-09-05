@@ -2,6 +2,8 @@
 
 
 // src/components/AdminDashboard.js
+// 
+
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
@@ -13,15 +15,16 @@ const AdminDashboard = () => {
   const [adminName] = useState("Gimhani"); // Replace with login user later
 const navigate = useNavigate();
   // Dummy users (later can fetch from backend)
-  const users = [
-    { id: 1, name: "Nimal", email: "nimal@example.com" },
-    { id: 2, name: "Kamal", email: "kamal@example.com" },
-    { id: 3, name: "Saman", email: "saman@example.com" },
-  ];
+
 
   const handleAddProductClick = () => {
    navigate('/addproduct');
     
+  };
+
+
+   const handleHomeImageClick = () => {
+    navigate("/homeimages"); // New route for home page images
   };
 
   return (
@@ -30,27 +33,7 @@ const navigate = useNavigate();
         <h2 className="mb-3">Hello, Admin {adminName}</h2>
         <p className="text-muted">Welcome to your Jewelry Shop Dashboard</p>
 
-        {/* ================= USERS SECTION ================= */}
-        <h4 className="mt-4">👥 User Details</h4>
-        <table className="table table-bordered mt-2">
-          <thead className="table-light">
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
+       
         {/* ================= ADD PRODUCT BUTTON ================= */}
         <div className="mt-4">
           <h4 className="mt-4">💎 Product Management</h4>
@@ -58,6 +41,14 @@ const navigate = useNavigate();
             Add Product
           </button>
         </div>
+
+         <div className="mt-4">
+          <h4 className="mt-4">🖼️ Home Page Images</h4>
+          <button className="btn btn-success" onClick={handleHomeImageClick}>
+            Manage Home Images
+          </button>
+        </div>
+
       </div>
     </div>
   );
